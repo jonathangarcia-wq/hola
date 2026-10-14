@@ -1,0 +1,128 @@
+@baseUrl = http://localhost:3000
+### listar animales
+GET {{baseUrl}}/api/animales
+
+### filtrar animales no adoptados
+GET {{baseUrl}}/api/animales?adoptado=false
+
+### buscar animal por id
+GET {{baseUrl}}/api/animales/1
+### buscar animal por id inexistente
+GET {{baseUrl}}/api/animales/99
+###listar todos los refugios
+GET {{baseUrl}}/api/refugios
+###lista de caracteristicas
+GET {{baseUrl}}/api/caracteristicas
+### Crear un animal
+POST {{baseUrl}}/api/animales
+Content-Type: application/json
+
+{
+  "nombre": "Rocky",
+  "especie": "Perro",
+  "edad": 4,
+  "sexo": "Macho",
+  "estado": "En adopcion",
+  "refugioId": 1
+}
+
+### Crear un animal con refugio inexistente
+POST {{baseUrl}}/api/animales
+Content-Type: application/json
+
+{
+  "nombre": "Max",
+  "especie": "Perro",
+  "edad": 2,
+  "sexo": "Macho",
+  "estado": "En adopcion",
+  "refugioId": 999999
+}
+
+### Crear un animal con edad inválida
+POST {{baseUrl}}/api/animales
+Content-Type: application/json
+
+{
+  "nombre": "Luna",
+  "especie": "Gato",
+  "edad": -5,
+  "sexo": "Hembra",
+  "estado": "En adopcion",
+  "refugioId": 1
+}
+
+### Crear un animal con datos faltantes
+POST {{baseUrl}}/api/animales
+Content-Type: application/json
+
+{
+  "especie": "Perro"
+}
+### Modificar un animal
+PUT {{baseUrl}}/api/animales/1
+Content-Type: application/json
+
+{
+  "nombre": "Toby Actualizado",
+  "especie": "Perro",
+  "edad": 4,
+  "sexo": "Macho",
+  "estado": "En adopcion",
+  "refugioId": 1
+}
+### Eliminar un animal que no existe (404)
+DELETE {{baseUrl}}/api/animales/999999
+
+### Crear animal para probar DELETE
+POST {{baseUrl}}/api/animales
+Content-Type: application/json
+
+{
+  "nombre": "Prueba Borrar",
+  "especie": "Perro",
+  "edad": 1,
+  "sexo": "Macho",
+  "estado": "En adopcion",
+  "refugioId": 1
+}
+
+### Eliminar animal de prueba
+DELETE {{baseUrl}}/api/animales/8
+
+
+
+### Crear un animal con foto
+POST {{baseUrl}}/api/animales
+Content-Type: multipart/form-data; boundary=MiLimite
+
+--MiLimite
+Content-Disposition: form-data; name="nombre"
+
+Firulais
+--MiLimite
+Content-Disposition: form-data; name="especie"
+
+Perro
+--MiLimite
+Content-Disposition: form-data; name="edad"
+
+2
+--MiLimite
+Content-Disposition: form-data; name="sexo"
+
+Macho
+--MiLimite
+Content-Disposition: form-data; name="estado"
+
+En adopcion
+--MiLimite
+Content-Disposition: form-data; name="refugioId"
+
+1
+--MiLimite
+Content-Disposition: form-data; name="foto"; filename="rusia.jpg"
+Content-Type: image/jpeg
+
+< ./rusia.jpg
+--MiLimite--
