@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Subida</title>
+</head>
+<body>
+    <h1>Crear Animal</h1>
+
+    <form action="http://localhost:3000/api/animales"
+          method="POST"
+          enctype="multipart/form-data">
+
+        <p>
+            <input type="text" name="nombre" placeholder="Nombre" required>
+        </p>
+
+        <p>
+            <input type="text" name="especie" placeholder="Especie" required>
+        </p>
+
+        <p>
+            <input type="number" name="edad" placeholder="Edad" min="0" required>
+        </p>
+
+        <p>
+            <input type="text" name="sexo" placeholder="Sexo" required>
+        </p>
+
+        <p>
+            <input type="text" name="estado" placeholder="Estado" required>
+        </p>
+
+        <p>
+            <input type="number" name="refugioId" placeholder="ID del refugio" min="1" required>
+        </p>
+
+        <p>
+            <input type="file" name="foto" accept="image/*" required>
+        </p>
+
+        <p>
+            <button type="submit">Crear</button>
+        </p>
+    </form>
+
+    <h2>Última imagen subida</h2>
+    <img src="/uploads/rusia.jpg" alt="Foto de prueba" width="300">
+</body>
+</html>

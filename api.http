@@ -6,7 +6,7 @@ GET {{baseUrl}}/api/animales
 GET {{baseUrl}}/api/animales?adoptado=false
 
 ### buscar animal por id
-GET {{baseUrl}}/api/animales/1
+GET {{baseUrl}}/api/animales/2
 ### buscar animal por id inexistente
 GET {{baseUrl}}/api/animales/99
 ###listar todos los refugios
